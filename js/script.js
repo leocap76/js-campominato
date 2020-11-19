@@ -30,7 +30,7 @@ var arrayBombe = [];
 
 i = 1;
 while (i <= 16) {
-  var randomNumber = numberGenerator(1,101);
+  var randomNumber = numberGenerator();
   i++;
   arrayBombe.push(randomNumber);
 }
