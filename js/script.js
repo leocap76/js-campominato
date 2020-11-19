@@ -10,3 +10,28 @@
 //  o raggiunge il numero massimo possibile di numeri consentiti.
 // Al termine della partita il software deve comunicare il punteggio,
 //  cioè il numero di volte che l’utente ha inserito un numero consentito.
+
+
+
+// -1 creare funzione che genera numero casuale da 1 a 100
+// -2 con un ciclo while riempi un array di 16 numeri
+// -3 far si che i numeri siano unici
+
+var n = numberGenerator();
+
+function numberGenerator() {
+  return Math.floor(Math.random()*100 + 1);
+}
+
+//-----------------------------------------------
+
+var arrayBombe = [];
+
+
+i = 1;
+while (i <= 16) {
+  var randomNumber = numberGenerator(1,101);
+  i++;
+  arrayBombe.push(randomNumber);
+}
+console.log(arrayBombe);
