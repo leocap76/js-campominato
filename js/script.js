@@ -17,7 +17,6 @@
 // -2 con un ciclo while riempi un array di 16 numeri
 // -3 far si che i numeri siano unici
 
-var n = numberGenerator();
 
 function numberGenerator() {
   return Math.floor(Math.random()*100 + 1);
@@ -28,10 +27,12 @@ function numberGenerator() {
 var arrayBombe = [];
 
 
-i = 1;
-while (i <= 16) {
+
+while (arrayBombe.length < 16) {
   var randomNumber = numberGenerator();
-  i++;
+
+  if (arrayBombe.includes(randomNumber) == false) {
   arrayBombe.push(randomNumber);
+  }
 }
 console.log(arrayBombe);
