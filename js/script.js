@@ -21,11 +21,22 @@
 function numberGenerator() {
   return Math.floor(Math.random()*100 + 1);
 }
-
+//funzione per vedere se il numero è incluso gia nell'array
+function includesNumber(arrayBombe, element){
+  var found = false;
+  for(var i = 0; i < arrayBombe.length; i++){
+    if(element == arrayBombe[i]){
+      found = true;
+    }
+  }
+  return found;
+}
 //-----------------------------------------------
 
 var arrayBombe = [];
-
+var maxAttempts = 100 - 16;
+//tentativi
+var attemptsArray = [];
 
 
 while (arrayBombe.length < 16) {
@@ -36,3 +47,31 @@ while (arrayBombe.length < 16) {
   }
 }
 console.log(arrayBombe);
+
+//gioco
+
+//ciclo for
+// for(var i = 0; i < maxAttempts; i++){
+//   var userNumber = parseInt(prompt("inserisci un numero da 1 a 100"));
+//   attemptsArray.push(userNumber);
+// }
+
+//while
+var last = false;
+while(attemptsArray.length < maxAttempts && last == false){
+  var userNumber = parseInt(prompt("inserisci un numero da 1 a 100"));
+
+  var checkAttempts = includesNumber(attemptsArray, userNumber);
+
+  var gameCheck = includesNumber(arrayBombe, userNumber);
+
+  if(gameCheck == true){
+    alert("hai perso");
+    last = true;
+  }else if(checkAttempts == false){
+    attemptsArray.push(userNumber);
+    console.log(attemptsArray);
+  }
+}
+alert("punteggio:" + attemptsArray.length);
+console.log(attemptsArray);
